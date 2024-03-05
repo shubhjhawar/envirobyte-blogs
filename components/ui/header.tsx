@@ -7,6 +7,13 @@ import Logo from './logo'
 import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
 
+import AppMenu from '../navMenus/appMenu'
+
+// header icons
+import { FaHome } from "react-icons/fa";
+import { MdConnectWithoutContact } from "react-icons/md";
+import { AiFillCar, AiFillCodepenCircle } from "react-icons/ai";
+
 export default function Header() {
 
   const [top, setTop] = useState<boolean>(true)
@@ -33,27 +40,64 @@ export default function Header() {
           </div>
 
           {/* Desktop navigation */}
-          <nav className="hidden md:flex md:grow">
+          <nav className="hidden md:flex md:grow mt-2">
 
             {/* Desktop menu links */}
             <ul className="flex grow justify-end flex-wrap items-center">
-              <li>
-                <Link href="/pricing" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Pricing</Link>
+              <li className='flex flex-col items-center'>
+                <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 py-2 flex flex-col items-center transition duration-150 ease-in-out">
+                  <FaHome className="w-5 h-5"/>
+                  <span>Home</span>
+                </Link>
+              </li>
+
+              <Dropdown title="About" icon={<AiFillCar className="w-5 h-5"/>}>
+                <AppMenu />
+              </Dropdown>
+
+              <Dropdown title="Sustainability" icon={<FaHome className="w-5 h-5"/>}>
+                <AppMenu />
+              </Dropdown>
+
+              <Dropdown title="Data Science" icon={<AiFillCodepenCircle className="w-5 h-5"/>}>
+                <AppMenu />
+              </Dropdown>
+
+              <li className='flex flex-col items-center'>
+                <Link href="/tutorials" className="text-gray-600 hover:text-gray-900 px-3 py-2 flex flex-col items-center transition duration-150 ease-in-out">
+                  <FaHome className="w-5 h-5"/>
+                  <span>Tutorial</span>
+                </Link>
+              </li>
+
+              <Dropdown title="App" icon={<FaHome className="w-5 h-5"/>}>
+                <AppMenu />
+              </Dropdown>
+
+              <li className='flex flex-col items-center'>
+                <Link href="/contact" className="text-gray-600 hover:text-gray-900 px-3 py-2 flex flex-col items-center transition duration-150 ease-in-out">
+                  <MdConnectWithoutContact className="w-5 h-5"/>
+                  <span>Contact Us</span>
+                </Link>
+              </li>
+              
+              {/* <li>
+                <Link href="/pricing" className="text-gray-600 hover:text-gray-900 px-3 py-2 flex items-center transition duration-150 ease-in-out">Pricing</Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">About us</Link>
+                <Link href="/about" className="text-gray-600 hover:text-gray-900 px-3 py-2 flex items-center transition duration-150 ease-in-out">About us</Link>
               </li>
               <li>
-                <Link href="/tutorials" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">
+                <Link href="/tutorials" className="text-gray-600 hover:text-gray-900 px-3 py-2 flex items-center transition duration-150 ease-in-out">
                   Tutorials
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Blog</Link>
-              </li>
+                <Link href="/blog" className="text-gray-600 hover:text-gray-900 px-3 py-2 flex items-center transition duration-150 ease-in-out">Blog</Link>
+              </li> */}
               {/* 1st level: hover */}
-              <Dropdown title="Resources">
                 {/* 2nd level: hover */}
+              {/* <Dropdown title="Resources">
                 <li>
                   <Link href="/documentation" className="font-medium text-sm text-gray-600 hover:text-gray-900 flex py-2 px-5 leading-tight">Documentation</Link>
                 </li>
@@ -63,17 +107,17 @@ export default function Header() {
                 <li>
                   <Link href="/404" className="font-medium text-sm text-gray-600 hover:text-gray-900 flex py-2 px-5 leading-tight">404</Link>
                 </li>
-              </Dropdown>
+              </Dropdown> */}
             </ul>
 
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
-                <Link href="/signin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
+                <Link href="/signin" className="font-medium text-gray-600 hover:text-gray-900 px-3 py-3 flex items-center transition duration-150 ease-in-out">Login / Register</Link>
               </li>
               <li>
                 <Link href="/signup" className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3">
-                  <span>Sign up</span>
+                  <span>Book a Demo</span>
                   <svg className="w-3 h-3 fill-current text-gray-400 shrink-0 ml-2 -mr-1" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fillRule="nonzero" />
                   </svg>

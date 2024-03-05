@@ -2,10 +2,12 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
+import { FaChevronDown } from "react-icons/fa";
 import Link from 'next/link'
 
 export default function MobileMenu() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false)
+  const [appDropDown, setAppDropDown] = useState<boolean>(false)
 
   const trigger = useRef<HTMLButtonElement>(null)
   const mobileNav = useRef<HTMLDivElement>(null)
@@ -65,32 +67,55 @@ export default function MobileMenu() {
         >
           <ul className="px-5 py-2">
             <li>
-              <Link href="/pricing" className="flex text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Pricing</Link>
+              <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Home</Link>
+            </li>
+
+            <li>
+              <Link href="/" className="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out">Contact Us</Link>
+            </li>
+
+            <li>
+              <span className="flex items-center group text-gray-600 hover:text-gray-900" onClick={() => setAppDropDown(prev => !prev)}>
+                <span className="px-3 lg:px-5 py-2 cursor-pointer">App</span>
+                <FaChevronDown />
+              </span>
+              <Transition
+                show={appDropDown}
+                as="nav"
+                id="mobile-nav"
+                className="bg-white"
+                enter="transition ease-out duration-200 transform"
+                enterFrom="opacity-0 -translate-y-2"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition ease-out duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                  <ul className="pl-4">
+                    <li>
+                      <Link href="/" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>EmissionX</Link>
+                    </li>
+                    <li>
+                      <Link href="/" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>OpenPEMS</Link>
+                    </li>
+                    <li>
+                      <Link href="/" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Decarb</Link>
+                    </li>
+                    <li>
+                      <Link href="/" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Emission Factor Hub</Link>
+                    </li>
+                    <li>
+                      <Link href="/" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Air Emission Factor Hub</Link>
+                    </li>
+                    <li>
+                      <Link href="/" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Steam Enthalpy</Link>
+                    </li>
+                  </ul>
+                </Transition>
             </li>
             <li>
-              <Link href="/about" className="flex text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>About us</Link>
-            </li>
-            <li>
-              <Link href="/tutorials" className="flex text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Tutorials</Link>
-            </li>
-            <li>
-              <Link href="/blog" className="flex text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Blog</Link>
-            </li>
-            <li className="py-2 my-2 border-t border-b border-gray-200">
-              <span className="flex text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Resources</span>
-              <ul className="pl-4">
-                <li>
-                  <Link href="/documentation" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Documentation</Link>
-                </li>
-                <li>
-                  <Link href="/support" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>Support center</Link>
-                </li>
-                <li>
-                  <Link href="/404" className="text-sm flex font-medium text-gray-600 hover:text-gray-900 py-2" onClick={() => setMobileNavOpen(false)}>404</Link>
-                </li>
-              </ul>
-            </li>
-            <li>
+
+
               <Link href="/signin" className="flex font-medium w-full text-gray-600 hover:text-gray-900 py-2 justify-center" onClick={() => setMobileNavOpen(false)}>Sign in</Link>
             </li>
             <li>
