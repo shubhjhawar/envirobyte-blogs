@@ -19,7 +19,7 @@ export default function Dropdown({
 
   return (
     <li
-      className="relative flex flex-col items-center text-gray-600 hover:text-gray-900"
+      className="relative flex flex-col items-center text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out"
       onMouseEnter={() => setDropdownOpen(true)}
       onMouseLeave={() => setDropdownOpen(false)}
       onFocus={() => setDropdownOpen(true)}
@@ -27,7 +27,7 @@ export default function Dropdown({
     >
       {icon}
       <a
-        className="px-3 flex items-center transition duration-150 ease-in-out"
+        className="px-3 flex items-center"
         href="#0"
         aria-expanded={dropdownOpen}
         onClick={(e) => e.preventDefault()}
@@ -40,7 +40,7 @@ export default function Dropdown({
       <Transition
         show={dropdownOpen}
         as="ul"
-        className="origin-top-right absolute top-full left-1/2 -translate-x-1/2 bg-white pt-2 ml-4 mt-2 rounded-md shadow-lg border-[1px] border-gray-300"
+        className="origin-top-right absolute top-full left-1/2 -translate-x-1/2 bg-white pt-2 ml-4 mt-5 rounded-md shadow-lg border-[1px] border-gray-300"
         enter="transition ease-out duration-200 transform"
         enterFrom="opacity-0 -translate-y-2"
         enterTo="opacity-100 translate-y-0"
