@@ -111,12 +111,8 @@ export default function Header() {
             {/* Desktop sign in links */}
             <ul className="flex grow justify-end flex-wrap items-center w-1/3">
               <li>
-                <Link href="/signin" className="font-medium text-gray-600 hover:text-gray-900 px-3 py-3 flex flex-col items-center transition duration-150 ease-in-out">
-                  <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M12 21v-2h7V5h-7V3h9v18zm-2-4l-1.375-1.45l2.55-2.55H3v-2h8.175l-2.55-2.55L10 7l5 5z"></path></svg>
-                  <span>Login / Register</span>
-                </Link>
+                <UserLogin />
               </li>
-              <UserLogin />
               <li className="flex flex-col justify-center items-center">
                   {/* <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5 mb-1' viewBox="0 0 32 32"><path fill="currentColor" d="M20 2v12l10-6z"></path><path fill="currentColor" d="M28 14v8H4V6h10V4H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8v4H8v2h16v-2h-4v-4h8a2 2 0 0 0 2-2v-8zM18 28h-4v-4h4z"></path></svg> */}
                 <Link href="/signup" className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3">
