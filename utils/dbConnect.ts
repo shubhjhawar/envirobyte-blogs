@@ -3,12 +3,14 @@ import { Client } from 'pg';
 import bcrypt from 'bcrypt';
 
 export default async function dbConnect(): Promise<Client> {
+    const portNumber: string | undefined = process.env.PORT_NUMBER;
+    const port: number | undefined = portNumber ? parseInt(portNumber, 10) : undefined;
     const client = new Client({
         user: process.env.USER_NAME,
         host: process.env.HOST_NAME,
         database: process.env.DB_NAME,
         password: process.env.DB_PASSWORD,
-        port: process.env.PORT_NUMBER,
+        port: port
     });
 
     try {

@@ -1,51 +1,49 @@
-import { allPosts } from 'contentlayer/generated'
-import PostItem from '@/components/post-item'
-import PopularPosts from './popular-posts'
-import Topics from './topics'
+import { getPostsMeta } from "@/app/lib/posts"
+import ListItem from "@/components/list-item"
+import Link  from "next/link";
 
-export const metadata = {
-  title: 'Blog - Simple',
-  description: 'Page description',
-}
+export default async function Blog() {
+    const posts = await getPostsMeta()
+    // console.log("hrere,",posts)
 
-export default function Blog() {
+    if (!posts) {
+        return <p className="mt-10 text-center">Sorry, no posts available.</p>
+    }
 
-  // Sort posts by date
-  allPosts.sort((a, b) => {
-    return (new Date(a.publishedAt) > new Date(b.publishedAt)) ? -1 : 1
-  }) 
-
-  return (
-    <section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
-
-          {/* Page header */}
-          <div className="max-w-3xl pb-12 md:pb-20 text-center md:text-left">
-            <h1 className="h1 mb-4">Type the way you talk</h1>
-            <p className="text-xl text-gray-600">Stay up to date on the latest from Simple and best news from the Dev world.</p>
-          </div>
-
-          {/* Main content */}
-          <div className="md:flex md:justify-between">
-
-            {/* Articles container */}
-            <div className="md:grow -mt-4">
-              {allPosts.map((post, postIndex) => (
-                <PostItem key={postIndex} {...post} />
-              ))}
-            </div>
-
-            {/* Sidebar */}
-            <aside className="relative mt-12 md:mt-0 md:w-64 md:ml-12 lg:ml-20 md:shrink-0">
-              <PopularPosts />
-              <Topics />
-            </aside>
-
-          </div>
-
-        </div>
-      </div>
-    </section>
-  )
+    return (
+        <section className="mx-auto max-w-6xl pt-32 pb-12 md:pt-40 md:pb-20">
+            <h2 className="text-4xl font-bold w-full flex justify-center mb-5">Blog Heading</h2>
+            <ul className="grid grid-cols-3 max-md:grid-cols-1 list-none p-2 max-md:px-12 lg:gap-10 md:gap-5">
+                {posts.map(post => (
+                    <ListItem key={post.id} post={post} />
+                ))}
+            </ul>
+            {/*  Pagination */}
+            <nav className="flex justify-center pt-16" role="navigation" aria-label="Pagination Navigation">
+              <ul className="inline-flex flex-wrap font-medium text-sm -m-1">
+                <li className="m-1">
+                  <span className="inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-4 rounded-full text-gray-500">Prev</span>
+                </li>
+                <li className="m-1">
+                  <Link href="#" className="inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out">1</Link>
+                </li>
+                <li className="m-1">
+                  <Link href="#" className="inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out">2</Link>
+                </li>
+                <li className="m-1">
+                  <Link href="#" className="inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out">3</Link>
+                </li>
+                <li className="m-1">
+                  <span className="inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-500">...</span>
+                </li>
+                <li className="m-1">
+                  <Link href="#" className="inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out">12</Link>
+                </li>
+                <li className="m-1">
+                  <Link href="#" className="inline-flex h-10 min-w-10 justify-center items-center bg-gray-800 px-4 rounded-full text-gray-300 hover:bg-purple-600 transition-colors duration-150 ease-in-out">Next</Link>
+                </li>
+              </ul>
+            </nav>
+        </section>
+    )
 }
