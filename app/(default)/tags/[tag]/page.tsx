@@ -1,5 +1,7 @@
 import { getPostsMeta } from "@/app/lib/posts";
 import ListItem from "@/components/list-item";
+import Pagination from "@/components/pagination";
+import paginationDetails from "@/utils/pagination";
 import Link from "next/link";
 
 export const revalidate = 10
@@ -7,6 +9,9 @@ export const revalidate = 10
 type Props = {
     params: {
         tag: string
+    }
+    searchParams: {
+        page: string | undefined
     }
 }
 
@@ -27,12 +32,26 @@ export function generateMetadata({params: {tag}}: Props){
 }
 
 
-export default async function TagPostList({params: {tag}}: Props){
-    const posts = await getPostsMeta();
+export default async function TagPostList({params: {tag}, searchParams}: Props){
+    const blogs = await getPostsMeta();
+    // total length of blogs
+    const totalPosts : number = blogs.length
+    // page is the searchParam
+    let page: number = parseInt(searchParams?.page as string, 10);
+    page = !page || page <1 ? 1 : page;
 
-    if(!posts) return <p>Sorry no posts available.</p>
+    // details required for pagination
+    const {totalPages, startIndex, endIndex, prevPage, nextPage} = paginationDetails(page, totalPosts)
 
-    const tagPosts = posts.filter(post => post.tags.includes(tag))
+    // Slice the blogs array to get posts for the current page
+    const currentPageBlogs = blogs?.slice(startIndex, endIndex);
+
+    // need to do something about this.....
+    const isPageOutOfRange = page > totalPages;
+
+    if(!blogs) return <p>Sorry no posts available.</p>
+
+    const tagPosts = blogs.filter(post => post.tags.includes(tag))
 
     if(!tagPosts.length){
         return (
@@ -49,11 +68,13 @@ export default async function TagPostList({params: {tag}}: Props){
 
             <section className="mt-6 mx-auto max-w-6xl">
                 <ul className="grid grid-cols-3 max-md:grid-cols-1 list-none p-2 max-md:px-12 lg:gap-10 md:gap-5">
-                    {tagPosts.map(post => (
+                    {currentPageBlogs.map(post => (
                         <ListItem key={post.id} post={post} />
                     ))}
                 </ul>
             </section>
+
+            <Pagination page={page} prevPage={prevPage} nextPage={nextPage} totalPages={totalPages} />
         </section>
     )
 }

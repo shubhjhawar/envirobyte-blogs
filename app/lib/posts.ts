@@ -82,7 +82,7 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
     }
 }
 
-export async function getPostsMeta(): Promise<Meta[] | undefined> {
+export async function getPostsMeta(): Promise<Meta[]> {
     try {
         const res = await fetch('https://api.github.com/repos/shubhjhawar/blogposts/git/trees/main?recursive=1', {
             headers: {
@@ -92,7 +92,7 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
             }
         });
 
-        if (!res.ok) return undefined;
+        if (!res.ok) return [];
 
         const repoFileTree: FileTree = await res.json();
 
@@ -112,7 +112,7 @@ export async function getPostsMeta(): Promise<Meta[] | undefined> {
         return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
     } catch (error) {
         console.error('Error fetching or processing file tree:', error);
-        return undefined;
+        return [];
     }
 }
 
