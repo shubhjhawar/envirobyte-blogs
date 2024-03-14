@@ -35,11 +35,11 @@ export default function ListItem({ post }: Props) {
                         ))}
                     </div>
                     }
-                    <h3 className="h4 mb-2">
+                    <h3 className="text-[20px] lg:text-[30px] font-bold mb-2">
                     <Link href={`/blog/${id}`}>{title}</Link>
                     </h3>
                 </header>
-                <p className="text-lg text-gray-400 grow">{description}</p>
+                <p className="md:text-md lg:text-lg text-gray-400 grow">{description}</p>
                 <footer className="flex items-center mt-4">
                     
                     <div className="font-medium">

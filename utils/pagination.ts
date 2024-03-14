@@ -1,6 +1,6 @@
 export default function paginationDetails(page:number, totalPosts:number) {
     // how many blogs per page
-    const perPage = 3;
+    const perPage = 6;
 
     // total pages
     const totalPages = Math.ceil(totalPosts / perPage);
