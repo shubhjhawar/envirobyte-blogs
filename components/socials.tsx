@@ -3,8 +3,9 @@ import Link from "next/link";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { BsFillPrinterFill } from "react-icons/bs";
+import { LinkedinShareButton } from "react-share";
 
-export const Socials = () => {
+export const Socials = ({ blogName }: { blogName: string }) => {
 
     const handleEmailClick = () => {
         window.location.href = 'mailto:msi@envirobyte.com';
@@ -29,22 +30,23 @@ export const Socials = () => {
     return (
         <div className="w-full flex items-center justify-center gap-6 mt-4">
             <button 
-                className="p-2 text-white bg-gray-600 hover:text-gray-100 hover:bg-black rounded-full transition duration-150 ease-in-out"
+                className="p-2 text-white bg-blue-600 hover:text-gray-100 hover:bg-blue-800 rounded-md transition duration-150 ease-in-out"
                 onClick={handlePrintClick}
             >
-                <BsFillPrinterFill className="w-5 h-5 fill-current" title="Print this blog" />
+                <BsFillPrinterFill className="w-6 h-6 fill-current" title="Print this blog" />
             </button>
 
             <button
-                className="p-2 text-white bg-gray-600 hover:text-gray-100 hover:bg-black rounded-full transition duration-150 ease-in-out"
+                className="p-2 text-white bg-red-600 hover:text-gray-100 hover:bg-red-700 rounded-full transition duration-150 ease-in-out"
                 onClick={handleEmailClick}
             >
-                <MdEmail className="w-5 h-5 fill-current" title="Email me" />
+                <MdEmail className="w-6 h-6 fill-current" title="Email me" />
             </button>
 
-            <Link href="https://linkedin.com/in/shubh-jhawar-069587192" target="_blank" className="p-2 text-white bg-gray-600 hover:text-gray-100 hover:bg-black rounded-full transition duration-150 ease-in-out">
-                <FaLinkedin className="w-5 h-5 fill-current" title="LinkedIn" />
-            </Link>                              
+            {/* need work here */}
+            <LinkedinShareButton url={`https://blog.hubspot.com/marketing/how-to-start-a-blog`} title="hello there" summary="this is desc" source="what is that?" >
+                <FaLinkedin className="w-10 h-10 text-white bg-blue-800 hover:text-gray-100 hover:bg-blue-900 rounded-md transition duration-150 ease-in-out" title="Share on LinkedIn" />
+            </LinkedinShareButton>
         </div>
         
     );

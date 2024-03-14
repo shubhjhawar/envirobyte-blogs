@@ -4,7 +4,9 @@ import { Inter } from 'next/font/google'
 
 import Header from '@/components/ui/header'
 import SessionProvider from '@/components/sessionProvider'
-import { getServerSession } from "next-auth"
+import { getServerSession } from "next-auth";
+import { Toaster } from "react-hot-toast";
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
@@ -30,6 +32,7 @@ export default async function RootLayout({
         <SessionProvider>
           <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
             <Header />
+            <Toaster />
             {children}
           </div>
         </SessionProvider>

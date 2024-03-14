@@ -64,3 +64,34 @@ export async function createUser({ name, email, password }: User): Promise<any> 
         await db.end();
     }
 }
+
+
+export async function Subscribe(email: string): Promise<any> {
+    const db = await dbConnect();
+    
+    try {
+        const emailExistsQuery = `
+            SELECT * FROM newslettersubscribers WHERE email = $1
+        `;
+        const emailExistsResult = await db.query(emailExistsQuery, [email]);
+        if (emailExistsResult.rows.length > 0) {
+            const response = { success: false, message: 'Email already exists, please Try Again!' };
+            return response;
+        }
+
+        const query = `
+            INSERT INTO newslettersubscribers (email, subscribed_at)
+            VALUES ($1, $2)
+        `;
+        await db.query(query, [email, new Date()]);
+        console.log('Newsletter Subscription Successful.');
+        const response = { success: true, message: 'Newsletter Subscription Successful.' };
+        return response;
+    } catch(error) {
+        console.error('Error subscribing user:', error);
+        const response = { success: false, message: 'error' };
+        return response;
+    } finally {
+        await db.end();
+    }
+}

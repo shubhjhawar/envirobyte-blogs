@@ -97,7 +97,7 @@ export default async function Post({params: {postId}}: Props) {
 
                             {/* Blog footer */}
                             <footer>
-                                <Socials />
+                                <Socials blogName={meta.title as string} />
                             </footer>
                         </article>
                     </div>
