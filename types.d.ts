@@ -4,7 +4,8 @@ type Meta = {
     date:string,
     tags: string[],
     banner:string,
-    description:string
+    description:string,
+    blogType: string
 }
 
 type FileTree = {

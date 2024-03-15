@@ -39,7 +39,8 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
             date: string;
             tags: string[];
             banner: string;
-            description: string
+            description: string,
+            blogType: string
         }>({
             source: rawMDX,
             components: {
@@ -71,7 +72,8 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
                 date: frontmatter.date || '',
                 tags: frontmatter.tags || [],
                 banner: frontmatter.banner || '',
-                description: frontmatter.description || ''
+                description: frontmatter.description || '',
+                blogType: frontmatter.blogType || ''
             },
             content
         };
@@ -112,6 +114,26 @@ export async function getPostsMeta(): Promise<Meta[]> {
         return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
     } catch (error) {
         console.error('Error fetching or processing file tree:', error);
+        return [];
+    }
+}
+
+export async function getNormalPostsMeta(): Promise<Meta[]> {
+    try {
+        const posts = await getPostsMeta();
+        return posts.filter(post => post.blogType === 'normal');
+    } catch (error) {
+        console.error('Error fetching or processing normal posts:', error);
+        return [];
+    }
+}
+
+export async function getFeaturePostsMeta(): Promise<Meta[]> {
+    try {
+        const posts = await getPostsMeta();
+        return posts.filter(post => post.blogType === 'feature');
+    } catch (error) {
+        console.error('Error fetching or processing feature posts:', error);
         return [];
     }
 }
