@@ -8,6 +8,9 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
 export async function getPostByName(fileName: string): Promise<BlogPost | undefined> {
     try {
         const res = await fetch(`https://raw.githubusercontent.com/shubhjhawar/blogposts/main/${fileName}`, {
@@ -54,10 +57,13 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
                         // @ts-ignore
                         rehypeHighlight,
                         rehypeSlug,
+                        // @ts-ignore
+                        rehypeKatex,
                         [rehypeAutolinkHeadings, {
                             behavior: 'wrap'
                         }],
-                    ]
+                    ],
+                    remarkPlugins: [remarkMath],
                 }
             }
         });

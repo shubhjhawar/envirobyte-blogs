@@ -1,6 +1,7 @@
 import BlogsComponent from '@/components/blogsComponent'
 import BlogsBanner from '@/components/blogsBanner'
 import Newsletter from '@/components/newsletter'
+import BannerSlider from '@/components/bannerSlider';
 
 export default function Home({
     searchParams,

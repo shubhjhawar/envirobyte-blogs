@@ -55,16 +55,16 @@ export default async function TagPostList({params: {tag}, searchParams}: Props){
 
     if(!tagPosts.length){
         return (
-            <div>
-                <p>Sorry no posts found for that keyword</p>
-                <Link href="/">Back to Home</Link>
+            <div className="mx-auto max-w-6xl pt-32 pb-12 md:pt-40 md:pb-20 flex flex-col items-center justify-center">
+                <h2 className="h1 mb-4">Sorry no posts found for that keyword</h2>
+                <Link href="/" className="btn text-white bg-blue-600 hover:bg-blue-700">Back to Home</Link>
             </div>
         )
     }
 
     return (
         <section className="mx-auto max-w-6xl pt-32 pb-12 md:pt-40 md:pb-20">
-            <h2 className="text-4xl font-bold w-full flex justify-center mb-5">Results for: {tag}</h2>
+            <h2 className="text-4xl font-bold w-full flex justify-center mb-5" data-aos="fade-up">Results for: {tag}</h2>
 
             <section className="mt-6 mx-auto max-w-6xl">
                 <ul className="grid grid-cols-3 max-md:grid-cols-1 list-none p-2 max-md:px-12 lg:gap-10 md:gap-5">

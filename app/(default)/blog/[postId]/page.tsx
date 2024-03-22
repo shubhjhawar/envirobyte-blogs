@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import 'highlight.js/styles/github-dark.css'
 import Image from "next/image";
 import { Socials } from "@/components/socials";
+import TableOfContent from "@/components/tableOfContent";
 
 export const revalidate = 10
 const tagColors = ["bg-red-400", "bg-blue-400", "bg-green-400", "bg-yellow-400", "bg-purple-400"];
@@ -51,6 +52,7 @@ export default async function Post({params: {postId}}: Props) {
     return (
         <section className="relative">
             <div className="max-w-6xl mx-auto px-4 sm:px-6">
+                <TableOfContent content={content}/>
                 <div className="pt-32 pb-12 md:pt-40 md:pb-20">
                     <div className="max-w-3xl mx-auto">
                         <article id="article-content">
@@ -84,13 +86,13 @@ export default async function Post({params: {postId}}: Props) {
 
                             {/* Blog image */}
                             {meta.banner &&
-                            <figure className="mb-8 lg:-ml-32 lg:-mr-32" data-aos="fade-up" data-aos-delay="600">
+                            <figure className="mb-8" data-aos="fade-up" data-aos-delay="600">
                                 <Image className="w-full" src={meta.banner} width={1024} height={576} alt={meta.title} priority />
                             </figure>
                             }
 
                             {/* Blog content */}
-                            <div className="prose text-black max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:font-bold prose-a:font-semibold prose-a:underline hover:prose-a:no-underline prose-a:font-normal prose-strong:font-medium prose-strong:text-black prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-black prose-blockquote:font-normal prose-blockquote:font-bold">
+                            <div id="content" className="prose text-black max-w-none prose-lg prose-invert prose-p:leading-normal prose-headings:font-bold prose-a:font-semibold prose-a:underline hover:prose-a:no-underline prose-a:text-black prose-strong:font-medium prose-strong:text-black prose-blockquote:italic prose-blockquote:pl-4 prose-blockquote:border-l-2 prose-blockquote:border-black prose-blockquote:font-normal prose-blockquote:font-bold">
                                 {content}
                             </div>
 
