@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="-445 -383 1704 1000">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-5 -3 6 6" markerWidth="6" markerHeight="6" color="#a5a5a5">
+      <g>
+        <path d="M -3.7333333 0 L 0 0 M 0 1.4 L -3.7333333 0 L 0 -1.4" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="StickArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -3 6 6" markerWidth="6" markerHeight="6" color="#a5a5a5">
+      <g>
+        <path d="M 3.7333333 0 L 0 0 M 0 -1.4 L 3.7333333 0 L 0 1.4" fill="none" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Canvas_1" stroke-opacity="1" fill="none" stroke="none" stroke-dasharray="none" fill-opacity="1">
+    <title>Canvas 1</title>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_70">
+        <title>Application</title>
+        <rect x="-27.6222" y="-106.60651" width="505.1704" height="77.66549" stroke="#00fa00" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <text transform="translate(-22.6222 -85.69377)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="172.3002" y="29">Application</tspan>
+        </text>
+      </g>
+      <g id="Graphic_69">
+        <title>Compliance Reporting</title>
+        <rect x="-444" y="-382" width="505.1704" height="77.66549" stroke="#00fdff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-439 -361.08725)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="97.2852" y="29">Compliance Reporting</tspan>
+        </text>
+      </g>
+      <g id="Graphic_68">
+        <title>Offline whatif</title>
+        <rect x="388.7556" y="-382" width="505.1704" height="77.66549" stroke="#00fdff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(393.7556 -379.00725)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="96.4302" y="29">Offline what-if analysis</tspan>
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="50.605205" y="64.84">e.g. emission control analysis</tspan>
+        </text>
+      </g>
+      <g id="Graphic_67">
+        <title>Enhance analyzer</title>
+        <rect x="388.7556" y="192.72623" width="505.1704" height="77.66549" stroke="#005c5d" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(393.7556 213.63898)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="48.430205" y="29">Enhance analyzers availability</tspan>
+        </text>
+      </g>
+      <g id="Graphic_66">
+        <title>Reduce failture</title>
+        <rect x="751.9744" y="329.72623" width="505.1704" height="77.66549" stroke="#ff9300" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <text transform="translate(756.9744 350.639)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="3.415205" y="29">Reduce failure due to early warnings</tspan>
+        </text>
+      </g>
+      <g id="Graphic_65">
+        <title>Backup</title>
+        <rect x="751.9744" y="450.8935" width="505.1704" height="77.66549" stroke="#ff9300" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <text transform="translate(756.9744 471.80623)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="20.290205" y="29">Backup during off-service periods</tspan>
+        </text>
+      </g>
+      <g id="Graphic_64">
+        <title>Continuous</title>
+        <rect x="-444" y="192.72623" width="505.1704" height="77.66549" stroke="#005c5d" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(-439 195.71898)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="47.260205" y="29">Provide continuous prediction</tspan>
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="105.0402" y="64.84">when CEMS is offline</tspan>
+        </text>
+      </g>
+      <g id="Graphic_63">
+        <title>Response Monitoring</title>
+        <rect x="-77.2444" y="329.72623" width="505.1704" height="77.66549" stroke="#ff9300" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <text transform="translate(-72.2444 350.639)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="104.5002" y="29">Response monitoring</tspan>
+        </text>
+      </g>
+      <g id="Graphic_62">
+        <title>Reactive monitoring</title>
+        <rect x="-77.2444" y="450.8935" width="505.1704" height="77.66549" stroke="#ff9300" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+        <text transform="translate(-72.2444 471.80623)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="30" fill="black" x="113.6802" y="29">Reactive monitoring</tspan>
+        </text>
+      </g>
+      <g id="Line_61">
+        <line x1="-97.9852" y1="368.059" x2="-190.9148" y2="368.059" marker-start="url(#StickArrow_Marker)" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_60">
+        <line x1="641.8408" y1="273.72623" x2="641.8408" y2="489.22623" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_59">
+        <line x1="642.9744" y1="368.059" x2="734.5744" y2="368.18564" marker-end="url(#StickArrow_Marker_2)" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_58">
+        <line x1="641.8408" y1="489.22623" x2="734.5744" y2="489.35406" marker-end="url(#StickArrow_Marker_2)" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_57">
+        <line x1="-191.9148" y1="274.39173" x2="-191.9148" y2="490.72623" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_56">
+        <line x1="-190.9148" y1="79.452465" x2="640.8408" y2="79.452465" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_55">
+        <line x1="-201.6222" y1="-287.1" x2="-201.6222" y2="-216" marker-start="url(#StickArrow_Marker)" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_54">
+        <line x1="-97.9852" y1="489.22623" x2="-190.9148" y2="489.22623" marker-start="url(#StickArrow_Marker)" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_53">
+        <line x1="-191.9148" y1="81.72623" x2="-191.9148" y2="176.82623" marker-end="url(#StickArrow_Marker_2)" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_52">
+        <line x1="640.8408" y1="81.72623" x2="640.8408" y2="176.82623" marker-end="url(#StickArrow_Marker_2)" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_51">
+        <line x1="224.463" y1="-26.11328" x2="223.7556" y2="79.452465" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_50">
+        <line x1="-201.6222" y1="-216" x2="640.8408" y2="-215" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_49">
+        <line x1="224.97862" y1="-215" x2="224.463" y2="-107.43425" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+      <g id="Line_48">
+        <line x1="640.8408" y1="-286.1" x2="640.8408" y2="-215" marker-start="url(#StickArrow_Marker)" stroke="#a5a5a5" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+      </g>
+    </g>
+  </g>
+</svg>
