@@ -23,6 +23,8 @@
     "fs": "^0.0.1-security",
     "highlight.js": "^11.9.0",
     "katex": "^0.16.9",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.3",
     "next": "^13.5.4",
     "next-auth": "^4.24.6",
     "next-contentlayer": "^0.3.4",
