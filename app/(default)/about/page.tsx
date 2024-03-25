@@ -1,8 +1,3 @@
-export const metadata = {
-  title: 'About - Simple',
-  description: 'Page description',
-}
-
 import Intro from './intro'
 import Story from './story'
 import Stats from '@/components/stats'

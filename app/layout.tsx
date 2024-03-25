@@ -14,8 +14,8 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'Envirobyte Blogs',
-  description: 'this is a blog website',
+  title: 'Envirobyte',
+  description: 'Envirobyte harnesses the power of cutting-edge Machine Learning and Artificial Intelligence technologies to drive environmental awareness and sustainability initiatives. Our blog serves as a platform for sharing AI-driven insights, innovative solutions, and data-driven approaches towards a greener future. Explore our content to stay informed, inspired, and empowered to make a positive impact on the planet.',
 }
 
 export default async function RootLayout({

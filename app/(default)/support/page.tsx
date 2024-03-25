@@ -1,8 +1,3 @@
-export const metadata = {
-  title: 'Support - Simple',
-  description: 'Page description',
-}
-
 export default function Support() {
   return (
     <>

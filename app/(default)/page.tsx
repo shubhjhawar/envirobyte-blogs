@@ -1,22 +1,19 @@
-import BlogsComponent from '@/components/blogsComponent'
-import BlogsBanner from '@/components/blogsBanner'
+import Hero from '@/components/hero-home'
+import Features from '@/components/features-home'
+import FeaturesBlocks from '@/components/features-blocks'
+import FeaturesWorld from '@/components/features-world'
+import News from '@/components/news'
 import Newsletter from '@/components/newsletter'
-import BannerSlider from '@/components/bannerSlider';
 
-export default function Home({
-    searchParams,
-  }: {
-    searchParams: { [key: string]: string | string[] | undefined }
-  }) {
-
-    let page: number = parseInt(searchParams.page as string, 10);
-    page = !page || page <1 ? 1 : page;
-
+export default function Home() {
   return (
-    <div className='mx-auto max-w-6xl pt-32 pb-5 md:pt-40'>
-      <BlogsBanner />
-      <BlogsComponent page={page}/>
+    <>
+      <Hero />
+      <Features />
+      <FeaturesBlocks />
+      <FeaturesWorld />
+      <News />
       <Newsletter />
-    </div>
+    </>
   )
 }
