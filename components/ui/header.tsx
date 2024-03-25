@@ -41,7 +41,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Site branding */}
-          <div className="shrink-0 mr-4">
+          <div className="shrink-0">
             <Logo />
           </div>
 

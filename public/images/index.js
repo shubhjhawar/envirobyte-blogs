@@ -9,5 +9,7 @@ import Kevin from "./Kevin.jpg";
 import Minxing from "./Minxing.jpg";
 import Nelson from "./Nelson.jpg";
 import Perry from "./Perry.jpg";
+import envirobyte from "./envirobyte.svg";
+import eb_logo from "./eb_logo.svg";
 
-export {ada, iot, pem, pma, emissionx, Brian, John, Kevin, Minxing, Nelson, Perry}
+export {ada, iot, pem, pma, emissionx, Brian, John, Kevin, Minxing, Nelson, Perry, envirobyte, eb_logo}
