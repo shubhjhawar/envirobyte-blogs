@@ -76,13 +76,13 @@ export default function Footer() {
                 <Link href="/datascience/advanced_data_analysis" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Data Analytics</Link>
               </li>
               <li className="mb-2">
-                <Link href="/datascience/iot" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Internet of Things</Link>
+                <Link href="/datascience/iot" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Internet of Things (IoT)</Link>
               </li>
-              <li className="/datascience/predictive_analysis">
-                <Link href="#0" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Predictive Analytics</Link>
+              <li className="mb-2">
+                <Link href="/datascience/predictive_analysis" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Predictive Analytics</Link>
               </li>
-              <li className="/tech/emmissionx">
-                <Link href="#0" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">GHG Reporting</Link>
+              <li className="mb-2">
+                <Link href="/tech/emmissionx" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">GHG Reporting</Link>
               </li>
             </ul>
           </div>
@@ -99,6 +99,9 @@ export default function Footer() {
               </li>
               <li className="mb-2">
                 <Link href="/about/contact" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Contact us</Link>
+              </li>
+              <li className="mb-2">
+                <Link href="/tutorials" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Tutorial</Link>
               </li>
               <li className="mb-2">
                 <Link href="/about/careers" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Careers</Link>
