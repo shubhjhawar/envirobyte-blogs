@@ -11,7 +11,7 @@ export default function FeaturesWorld() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h2 mb-4">Simple can help you scale internationally</h1>
+            <h1 className="h2 mb-4">Envirobyte can help you scale internationally</h1>
             <p className="text-xl text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.</p>
           </div>
 
@@ -80,9 +80,6 @@ export default function FeaturesWorld() {
                   <circle cx="24" cy="24" r="8" />
                 </g>
               </svg>
-              {/* Avatars */}
-              <Image className="absolute max-w-full transform animate-float" src={PlanetAvatar01} width={261} height={105} alt="Planet avatar 01" style={{ width: '65.25%', top: '-3%', right: '-27%' }} />
-              <Image className="absolute max-w-full transform animate-float animation-delay-1000" src={PlanetAvatar02} width={355} height={173} alt="Planet avatar 02" style={{ width: '88.7%', bottom: '-20%', right: '-18%' }} />
               {/* Black icon */}
               <svg className="absolute top-0 max-w-full w-20 h-auto rounded-full shadow-xl" viewBox="0 0 80 80" style={{ width: '20%', left: '6%' }} xmlns="http://www.w3.org/2000/svg">
                 <circle className="fill-current text-gray-800" cx="40" cy="40" r="40" />

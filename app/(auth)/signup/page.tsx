@@ -1,42 +1,80 @@
-export const metadata = {
-  title: 'Sign Up - Simple',
-  description: 'Page description',
-}
+"use client";
 
+import { useEffect, useState } from 'react';
+import { createUser } from '@/utils/mongoDbConnect';
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
+import { signIn, useSession } from 'next-auth/react';
+
+
 
 export default function SignUp() {
+  const [errorMsg, setErrorMsg] = useState<string>('')
+  const router = useRouter();
+  const { data: session} = useSession();
+
+  useEffect(() => {
+    if (session) {
+      router.push('/');
+    }
+  }, [session, router]);
+
+  const handleSubmit = async (e:any) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.currentTarget);
+
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    const response = await createUser({name, email, password})
+    if (response.success == true){
+      router.push("/signin")
+    } else{
+      setErrorMsg(response.message)
+    }
+  }
+
+  const handleClick = async (e:any) => {
+    e.preventDefault();
+
+    await signIn("linkedin");
+    router.push("/")
+  }
+
   return (
     <section className="bg-gradient-to-b from-gray-100 to-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
 
           {/* Page header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+          {/* <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h1 className="h1">Welcome. We exist to make entrepreneurism easier.</h1>
-          </div>
+          </div> */}
 
           {/* Form */}
           <div className="max-w-sm mx-auto">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
                   <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="name">Name <span className="text-red-600">*</span></label>
-                  <input id="name" type="text" className="form-input w-full text-gray-800" placeholder="Enter your name" required />
+                  <input name="name" type="text" className="form-input w-full text-gray-800" placeholder="Enter your name" required />
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
                   <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email <span className="text-red-600">*</span></label>
-                  <input id="email" type="email" className="form-input w-full text-gray-800" placeholder="Enter your email address" required />
+                  <input name="email" type="email" className="form-input w-full text-gray-800" placeholder="Enter your email address" required />
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-4">
                 <div className="w-full px-3">
                   <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Password <span className="text-red-600">*</span></label>
-                  <input id="password" type="password" className="form-input w-full text-gray-800" placeholder="Enter your password" required />
+                  <input name="password" type="password" className="form-input w-full text-gray-800" placeholder="Enter your password" required />
                 </div>
               </div>
+              {errorMsg && <p className='my-2 text-red-500'>{errorMsg}</p>}
               <div className="flex flex-wrap -mx-3 mt-6">
                 <div className="w-full px-3">
                   <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full">Sign up</button>
@@ -54,27 +92,18 @@ export default function SignUp() {
             <form>
               <div className="flex flex-wrap -mx-3 mb-3">
                 <div className="w-full px-3">
-                  <button className="btn px-0 text-white bg-gray-900 hover:bg-gray-800 w-full relative flex items-center">
-                    <svg className="w-4 h-4 fill-current text-white opacity-75 shrink-0 mx-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.95 0C3.578 0 0 3.578 0 7.95c0 3.479 2.286 6.46 5.466 7.553.397.1.497-.199.497-.397v-1.392c-2.187.497-2.683-.993-2.683-.993-.398-.895-.895-1.193-.895-1.193-.696-.497.1-.497.1-.497.795.1 1.192.795 1.192.795.696 1.292 1.888.895 2.286.696.1-.497.298-.895.497-1.093-1.79-.2-3.578-.895-3.578-3.975 0-.895.298-1.59.795-2.087-.1-.2-.397-.994.1-2.087 0 0 .695-.2 2.186.795a6.408 6.408 0 011.987-.299c.696 0 1.392.1 1.988.299 1.49-.994 2.186-.795 2.186-.795.398 1.093.199 1.888.1 2.087.496.596.795 1.291.795 2.087 0 3.08-1.889 3.677-3.677 3.875.298.398.596.895.596 1.59v2.187c0 .198.1.497.596.397C13.714 14.41 16 11.43 16 7.95 15.9 3.578 12.323 0 7.95 0z" />
+                  <button onClick={handleClick} className="btn px-0 text-white bg-blue-900 hover:bg-blue-800 w-full relative flex justify-evenly items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24">
+                      <rect width="24" height="24" fill="none" />
+                      <path fill="white" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z" />
                     </svg>
-                    <span className="flex-auto pl-16 pr-8 -ml-16">Continue with GitHub</span>
-                  </button>
-                </div>
-              </div>
-              <div className="flex flex-wrap -mx-3">
-                <div className="w-full px-3">
-                  <button className="btn px-0 text-white bg-red-600 hover:bg-red-700 w-full relative flex items-center">
-                    <svg className="w-4 h-4 fill-current text-white opacity-75 shrink-0 mx-4" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" />
-                    </svg>
-                    <span className="flex-auto pl-16 pr-8 -ml-16">Continue with Google</span>
+                    <span className="w-3/4">Continue with LinkedIn</span>
                   </button>
                 </div>
               </div>
             </form>
             <div className="text-gray-600 text-center mt-6">
-              Already using Simple? <Link href="/signin" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign in</Link>
+              Already using Envirobyte? <Link href="/signin" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign in</Link>
             </div>
           </div>
 

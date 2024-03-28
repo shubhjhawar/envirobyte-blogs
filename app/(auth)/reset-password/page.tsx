@@ -1,8 +1,3 @@
-export const metadata = {
-  title: 'Reset Password - Simple',
-  description: 'Page description',
-}
-
 export default function ResetPassword() {
   return (
     <section className="bg-gradient-to-b from-gray-100 to-white">
