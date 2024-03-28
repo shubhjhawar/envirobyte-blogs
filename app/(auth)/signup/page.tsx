@@ -1,16 +1,23 @@
 "use client";
 
-import { useState } from 'react';
-import { createUser } from '@/utils/dbConnect';
+import { useEffect, useState } from 'react';
+import { createUser } from '@/utils/mongoDbConnect';
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 
 
 
 export default function SignUp() {
   const [errorMsg, setErrorMsg] = useState<string>('')
   const router = useRouter();
+  const { data: session} = useSession();
+
+  useEffect(() => {
+    if (session) {
+      router.push('/');
+    }
+  }, [session, router]);
 
   const handleSubmit = async (e:any) => {
     e.preventDefault();

@@ -1,7 +1,7 @@
 import GitHubProvider from "next-auth/providers/github";
 import LinkedInProvider from 'next-auth/providers/linkedin';
 import CredentialsProvider from "next-auth/providers/credentials";
-import dbConnect from "@/utils/dbConnect";
+import connectToMongoDB from "./mongoDbConnect";
 import bcrypt from "bcrypt";
 
 export const authOptions = {
@@ -14,25 +14,20 @@ export const authOptions = {
       },
       async authorize(credentials, req) {
         // Add logic here to authenticate user using provided credentials
-        const db = await dbConnect();
+        const db = await connectToMongoDB();
         try {
           const email = credentials?.email;
           const password = credentials?.password;
 
           // Check if email and password are defined
           if (email && password) {
-            const query = `
-              SELECT * 
-              FROM users 
-              WHERE email = $1
-            `;
-            const result = await db.query(query, [email]);
-            const user = result.rows[0];
+            const usersCollection = db.collection('users');
+            const user = await usersCollection.findOne({ email: email });
             if (user) {
               // Compare the provided password with the hashed password stored in the database
               const passwordMatch = await bcrypt.compare(password, user.password);
               if (passwordMatch) {
-                return user; // Return user if passwords match
+                return user as any; // Return user if passwords match
               }
             }
           }
@@ -40,8 +35,6 @@ export const authOptions = {
         } catch (error) {
           console.error("Error in authorize:", error);
           throw error;
-        } finally {
-          await db.end();
         }
       }
     }),
@@ -71,31 +64,23 @@ export const authOptions = {
       const { user, account, profile } = params;
       // If the user is coming from GitHub, check if they exist in the database
       if (account?.provider === "linkedin" && profile?.email) {
-        const db = await dbConnect();
+        const db = await connectToMongoDB();
         try {
-          const query = `
-            SELECT * 
-            FROM users 
-            WHERE email = $1
-          `;
-          const result = await db.query(query, [profile.email]);
-          const existingUser = result.rows[0];
+          const usersCollection = db.collection('users');
+          const existingUser = await usersCollection.findOne({ email: profile.email });
           if (!existingUser) {
             // Add user to the database if they don't exist
-            const insertQuery = `
-              INSERT INTO users (email, name, user_type, created_at)
-              VALUES ($1, $2, $3, $4)
-              RETURNING *
-            `;
-            const insertValues = [profile.email, user?.name, 'linkedin', new Date()];
-            await db.query(insertQuery, insertValues);
+            await usersCollection.insertOne({
+              email: profile.email,
+              name: user?.name,
+              user_type: 'linkedin',
+              created_at: new Date()
+            });
             return true;
           }
         } catch (error) {
           console.error("Error in signIn:", error);
           throw error;
-        } finally {
-          await db.end();
         }
       }
       return true; // If not GitHub provider, simply return true

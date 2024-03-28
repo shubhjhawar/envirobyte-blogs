@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import { Subscribe } from "@/utils/dbConnect";
+import { subscribe } from "@/utils/mongoDbConnect";
 import { toast } from "react-hot-toast";
 
 export default function Newsletter() {
@@ -10,7 +10,7 @@ export default function Newsletter() {
     e.preventDefault();
 
     try {
-      const {success, message} = await Subscribe(email); 
+      const {success, message} = await subscribe(email); 
       if(success){
         toast.success(message);
       } else {

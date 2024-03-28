@@ -3,14 +3,15 @@
 import { useState, useEffect } from 'react'
 
 import Link from 'next/link'
-import Logo from './logo'
+import Image from 'next/image'
 import Dropdown from '@/components/utils/dropdown'
 import MobileMenu from './mobile-menu'
 
 import TechMenu from '../navMenus/techMenu'
 import AboutMenu from '../navMenus/aboutMenu'
 import SustainabilityMenu from '../navMenus/sustainabilityMenu';
-import UserLogin from '../userLogin'
+import UserLogin from '../userLogin';
+import { eb_logo } from "../../public/images"
 
 const navbarIcons = {
   home: (<svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 32 32"><path fill="currentColor" d="M16.612 2.214a1.01 1.01 0 0 0-1.242 0L1 13.419l1.243 1.572L4 13.621V26a2.004 2.004 0 0 0 2 2h20a2.004 2.004 0 0 0 2-2V13.63L29.757 15L31 13.428ZM18 26h-4v-8h4Zm2 0v-8a2.002 2.002 0 0 0-2-2h-4a2.002 2.002 0 0 0-2 2v8H6V12.062l10-7.79l10 7.8V26Z"></path></svg>),
@@ -41,9 +42,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Site branding */}
-          <div className="shrink-0 mr-4">
-            <Logo />
-          </div>
+          <Link href="/" className="shrink-0">
+            <Image src={eb_logo} alt="eb_logo" className="w-5 h-5" title="Envirobyte"/>
+          </Link>
 
           {/* Desktop navigation */}
           <nav className="hidden lg:flex lg:grow mt-2">
@@ -114,7 +115,7 @@ export default function Header() {
                 <UserLogin />
               </li>
               <li className="flex flex-col justify-center items-center">
-                <Link href="/signup" className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3">
+                <Link href="/about/contact" className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3">
                   <span>Book a Demo</span>
                   <svg className="w-3 h-3 fill-current text-gray-400 shrink-0 ml-2 -mr-1" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fillRule="nonzero" />

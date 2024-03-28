@@ -1,12 +1,14 @@
 "use client";
 import Link from 'next/link';
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useRouter} from "next/navigation";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function SignIn() {
   const router = useRouter();
   const [errorMsg, setErrorMsg] = useState<string>('')
+  const { data: session} = useSession();
+
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ export default function SignIn() {
       redirect:false,
     })
 
-    if(signInResponse && !signInResponse.error) {
+    if(signInResponse) {
       router.push("/")
     } else {
       console.log("error", signInResponse);
@@ -30,6 +32,12 @@ export default function SignIn() {
     e.preventDefault();
     await signIn("linkedin");
   }
+
+  useEffect(() => {
+    if (session) {
+      router.push('/');
+    }
+  }, [session, router]);
 
   return (
     <section className="bg-gradient-to-b from-gray-100 to-white">

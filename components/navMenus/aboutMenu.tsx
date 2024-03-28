@@ -1,8 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import logo from '../../public/images/about-logo.png';
-import { MdConnectWithoutContact } from 'react-icons/md';
 
 const AboutMenu = () => {
     return (
@@ -31,6 +28,15 @@ const AboutMenu = () => {
                         <li className="flex items-center hover:bg-gray-200 px-1 lg:pr-5 py-2 transition duration-150 ease-in-out">
                             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M21 2H6a2 2 0 0 0-2 2v3H2v2h2v2H2v2h2v2H2v2h2v3a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1m-8 2.999c1.648 0 3 1.351 3 3A3.012 3.012 0 0 1 13 11c-1.647 0-3-1.353-3-3.001c0-1.649 1.353-3 3-3M19 18H7v-.75c0-2.219 2.705-4.5 6-4.5s6 2.281 6 4.5z"></path></svg>
                             <span className="text-gray-600 ml-3">Contact Us</span>
+                            <span className="absolute inset-x-0 w-0 bottom-0 h-0.5 bg-black transition-width duration-500 ease-in-out group-hover:w-full"></span>
+                        </li>
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/about/careers" className='relative group'>
+                        <li className="flex items-center hover:bg-gray-200 px-1 lg:pr-5 py-2 transition duration-150 ease-in-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="black" d="M19 17v2H7v-2s0-4 6-4s6 4 6 4m-3-9a3 3 0 1 0-3 3a3 3 0 0 0 3-3m3.2 5.06A5.6 5.6 0 0 1 21 17v2h3v-2s0-3.45-4.8-3.94M18 5a2.91 2.91 0 0 0-.89.14a5 5 0 0 1 0 5.72A2.91 2.91 0 0 0 18 11a3 3 0 0 0 0-6M8 10H5V7H3v3H0v2h3v3h2v-3h3Z"/></svg>
+                            <span className="text-gray-600 ml-3">Careers</span>
                             <span className="absolute inset-x-0 w-0 bottom-0 h-0.5 bg-black transition-width duration-500 ease-in-out group-hover:w-full"></span>
                         </li>
                     </Link>

@@ -1,8 +1,3 @@
-export const metadata = {
-  title: 'Documentation - Simple',
-  description: 'Page description',
-}
-
 import Sidebar from './nav-sidebar'
 import Content from './content'
 
