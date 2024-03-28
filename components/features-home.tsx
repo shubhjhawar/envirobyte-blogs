@@ -4,10 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
 import Image from 'next/image'
 import TopImage from '@/public/images/features-top-image.png'
-import FeaturesBg01 from '@/public/images/features-home-bg-01.png'
-import FeaturesElement01 from '@/public/images/features-home-element-01.png'
-import FeaturesElement02 from '@/public/images/features-home-element-02.png'
-import FeaturesElement03 from '@/public/images/features-home-element-03.png'
+import { emission, openPems } from '@/public/images'
 
 export default function FeaturesHome() {
   
@@ -35,7 +32,7 @@ export default function FeaturesHome() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-            <h1 className="h2 mb-4">How Simple works</h1>
+            <h1 className="h2 mb-4">How Envirobyte works</h1>
             <p className="text-xl text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.</p>
           </div>
 
@@ -60,8 +57,8 @@ export default function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(1); }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Building the Simple ecosystem</div>
-                    <div className="text-gray-600">Take collaboration to the next level with security and administrative features built for teams.</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">EmissionX™</div>
+                    <div className="text-gray-600">one line desciption on the topic EmissionX - of min 10 words</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -74,8 +71,8 @@ export default function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(2); }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Building the Simple ecosystem</div>
-                    <div className="text-gray-600">Take collaboration to the next level with security and administrative features built for teams.</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">OpenPEMS™</div>
+                    <div className="text-gray-600">one line desciption on the topic OpenPEMS - of min 10 words</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -88,8 +85,8 @@ export default function FeaturesHome() {
                   onClick={(e) => { e.preventDefault(); setTab(3); }}
                 >
                   <div>
-                    <div className="font-bold leading-snug tracking-tight mb-1">Building the Simple ecosystem</div>
-                    <div className="text-gray-600">Take collaboration to the next level with security and administrative features built for teams.</div>
+                    <div className="font-bold leading-snug tracking-tight mb-1">Decarb</div>
+                    <div className="text-gray-600">one line desciption on the topic Decarb - of min 10 words</div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow shrink-0 ml-3">
                     <svg className="w-3 h-3 fill-current" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -118,10 +115,7 @@ export default function FeaturesHome() {
                     unmount={false}                  
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image className="md:max-w-none mx-auto rounded" src={FeaturesBg01} width={500} height={375} alt="Features bg" />
-                      <Image className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement01} width={500} height={147} alt="Element 01" style={{ top: '22%' }} />
-                      <Image className="md:max-w-none absolute w-full left-0 transform animate-float animation-delay-500" src={FeaturesElement02} width={500} height={158} alt="Element 02" style={{ top: '39%' }} />
-                      <Image className="md:max-w-none absolute w-full left-0 bottom-0 transform animate-float animation-delay-1000" src={FeaturesElement03} width={500} height={167} alt="Element 03" style={{ top: '77%' }} />
+                      <Image className="md:max-w-none mx-auto rounded transform animate-float" src={emission} width={500} height={375} alt="Features bg" />
                     </div>
                   </Transition>
                   {/* Item 2 */}
@@ -138,10 +132,7 @@ export default function FeaturesHome() {
                     unmount={false}                  
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image className="md:max-w-none mx-auto rounded" src={FeaturesBg01} width={500} height={375} alt="Features bg" />
-                      <Image className="md:max-w-none absolute w-full left-0 bottom-0 transform animate-float animation-delay-1000" src={FeaturesElement03} width={500} height={167} alt="Element 03" style={{ top: '18%' }} />
-                      <Image className="md:max-w-none absolute w-full left-0 transform animate-float animation-delay-500" src={FeaturesElement02} width={500} height={158} alt="Element 02" style={{ top: '40%' }} />
-                      <Image className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement01} width={500} height={147} alt="Element 01" style={{ top: '79%' }} />
+                      <Image className="md:max-w-none mx-auto rounded transform animate-float" src={openPems} width={500} height={375} alt="Features bg" />
                     </div>
                   </Transition>
                   {/* Item 3 */}
@@ -158,10 +149,7 @@ export default function FeaturesHome() {
                     unmount={false}                  
                   >
                     <div className="relative inline-flex flex-col">
-                      <Image className="md:max-w-none mx-auto rounded" src={FeaturesBg01} width={500} height={375} alt="Features bg" />
-                      <Image className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement01} width={500} height={147} alt="Element 01" style={{ top: '22%' }} />
-                      <Image className="md:max-w-none absolute w-full left-0 transform animate-float animation-delay-500" src={FeaturesElement02} width={500} height={158} alt="Element 02" style={{ top: '39%' }} />
-                      <Image className="md:max-w-none absolute w-full left-0 bottom-0 transform animate-float animation-delay-1000" src={FeaturesElement03} width={500} height={167} alt="Element 03" style={{ top: '77%' }} />
+                      <Image className="md:max-w-none mx-auto rounded transform animate-float" src={openPems} width={500} height={375} alt="Features bg" />
                     </div>
                   </Transition>
                 </div>
