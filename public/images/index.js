@@ -11,5 +11,8 @@ import Nelson from "./Nelson.jpg";
 import Perry from "./Perry.jpg";
 import envirobyte from "./envirobyte.svg";
 import eb_logo from "./eb_logo.svg";
+import emission from "./emission.svg";
+import openPems from "./openPems.svg";
 
-export {ada, iot, pem, pma, emissionx, Brian, John, Kevin, Minxing, Nelson, Perry, envirobyte, eb_logo}
+
+export {ada, iot, pem, pma, emissionx, Brian, John, Kevin, Minxing, Nelson, Perry, envirobyte, eb_logo, emission, openPems}
